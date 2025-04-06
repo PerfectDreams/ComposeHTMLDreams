@@ -1,6 +1,6 @@
 # Compose HTML Fork
 
-A Compose HTML fork targeting the modernized Kotlin Browser bindings (very experimental and mostly meant to see how Compose HTML works behind the hood).
+A Compose HTML fork targeting the [modernized Kotlin Browser bindings](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-browser) (very experimental and mostly meant to see how Compose HTML works behind the hood).
 
 Should you use this? Probably not.
 
@@ -12,9 +12,13 @@ Compose HTML is a library targeting [Kotlin/JS](https://kotlinlang.org/docs/js-o
 
 JetBrains is not updating Compose HTML because they are focusing on Compose Web, which is a version of Compose that is *actually* multiplatform that targets Kotlin/WASM and the Canvas, letting you share components between Desktop, Android, Web, and other platforms supported by Compose.
 
-Compose HTML still works fine, but because its future is still uncertain, I've decided to fork it and find out if maintaining Compose HTML would be hard. 
+Compose HTML still works fine, but because its future is still uncertain, I've decided to fork it and find out if maintaining Compose HTML would be hard.
 
 After looking into Compose HTML's code, the code is not actually *that* complex. Of course, most of the heavy lifting is done by Jetpack Compose.
+
+For this fork, I've changed (most) of the code to use the [modernized Kotlin Browser bindings](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-browser) (the module's README says that they are only "Browser APIs missing from the standard library" but as far as I know they also have all the APIs included in Kotlin/JS too, but the quality of the `kotlin-browser` bindings are better than the bindings included in Kotlin/JS)
+
+But at the end of the day, using the modernized Kotlin Browser bindings in Compose HTML is not *that* useful, the only difference you would see when using Compose HTML is that the `renderComposable` function requires a `web.dom.Element` instead of a `org.w3c.dom.Element`, that you have access to better event bindings when accessing the `nativeEvent` of a synthetic event, and that you have the `web.html` bindings when using `ref { ... }`.
 
 ## Why not use React instead of Compose HTML?
 
@@ -33,6 +37,7 @@ Add `maven("https://repo.perfectdreams.net/")` to your repositories.
 Replace `implementation(compose.html.core)` with `implementation("net.perfectdreams.compose.htmldreams:html-core:1.7.3")` in your `build.gradle.kts`.
 
 If you are still using the original Kotlin Browser bindings (`org.w3c`), you may encounter a lot of errors in a project that already uses Compose HTML. You can work around a lot of these errors by `unsafeCast`'ing to the new `web.html` bindings (`w3cElement.unsafeCast<web.html.HTMLElement>()`), and then migrate your codebase to `web.html` over time.
+
 ## Prerequisites for running Selenium tests
 
 As of now Selenium tests are turned on by default.
