@@ -24,6 +24,15 @@ You can use React in Kotlin/JS by using the [React Bindings](https://github.com/
 
 However, in my experience, Compose HTML is easier to use than React. You can easily integrate things outside the Compose tree, whereas with React you need to create a subscription system to update the state inside the tree. You also don't need to declare props in an interface.
 
+## Using Compose HTML Dreams in a Project
+
+I don't recommend using this fork in your projects, because this fork is VERY experimental. But if you still want to go through it...
+
+Add `maven("https://repo.perfectdreams.net/")` to your repositories.
+
+Replace `implementation(compose.html.core)` with `implementation("net.perfectdreams.compose.htmldreams:html-core:1.7.3")` in your `build.gradle.kts`.
+
+If you are still using the original Kotlin Browser bindings (`org.w3c`), you may encounter a lot of errors in a project that already uses Compose HTML. You can work around a lot of these errors by `unsafeCast`'ing to the new `web.html` bindings (`w3cElement.unsafeCast<web.html.HTMLElement>()`), and then migrate your codebase to `web.html` over time.
 ## Prerequisites for running Selenium tests
 
 As of now Selenium tests are turned on by default.

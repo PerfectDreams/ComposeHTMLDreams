@@ -29,7 +29,7 @@ subprojects {
     apply(plugin = "maven-publish")
 
     val projectName = name
-    group = "org.jetbrains.compose.html"
+    group = "net.perfectdreams.compose.htmldreams"
     version = COMPOSE_WEB_VERSION
 
     if ((project.name != "html-widgets") && (project.name != "html-integration-widgets")) {
@@ -64,6 +64,12 @@ subprojects {
                         username = COMPOSE_REPO_USERNAME ?: ""
                         password = COMPOSE_REPO_KEY ?: ""
                     }
+                }
+
+                maven {
+                    name = "PerfectDreams"
+                    url = uri("https://repo.perfectdreams.net/")
+                    credentials(PasswordCredentials::class)
                 }
             }
             publications.all {
