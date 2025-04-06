@@ -8,7 +8,7 @@ import androidx.compose.web.events.SyntheticMouseEvent
 import androidx.compose.web.events.SyntheticWheelEvent
 import org.jetbrains.compose.web.events.*
 import org.jetbrains.compose.web.internal.runtime.ComposeWebInternalApi
-import org.w3c.dom.events.EventTarget
+import web.events.EventTarget
 
 private typealias SyntheticMouseEventListener = (SyntheticMouseEvent) -> Unit
 private typealias SyntheticWheelEventListener = (SyntheticWheelEvent) -> Unit

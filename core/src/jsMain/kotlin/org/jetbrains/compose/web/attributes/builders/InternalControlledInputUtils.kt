@@ -10,9 +10,9 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.NonRestartableComposable
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.dom.ElementScope
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.HTMLTextAreaElement
+import web.html.HTMLElement
+import web.html.HTMLInputElement
+import web.html.HTMLTextAreaElement
 
 
 private val controlledInputsValuesWeakMap: JsWeakMap = js("new WeakMap();").unsafeCast<JsWeakMap>()
@@ -55,7 +55,7 @@ internal fun <V : Any> saveControlledInputState(element: HTMLElement, value: V) 
 internal val controlledRadioGroups = mutableMapOf<String, MutableSet<HTMLInputElement>>()
 
 private fun updateRadioGroupIfNeeded(element: HTMLInputElement) {
-    if (element.type == "radio" && element.name.isNotEmpty()) {
+    if (element.type == web.html.InputType.radio && element.name.isNotEmpty()) {
         if (!controlledRadioGroups.containsKey(element.name)) {
             controlledRadioGroups[element.name] = mutableSetOf()
         }

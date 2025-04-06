@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import kotlinx.browser.document
 import kotlinx.dom.clear
 import org.jetbrains.compose.web.attributes.*
 import org.jetbrains.compose.web.css.*
@@ -13,9 +12,12 @@ import org.jetbrains.compose.web.dom.Text
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import org.jetbrains.compose.web.testutils.*
-import org.w3c.dom.*
+import web.html.*
 import kotlin.test.assertContains
 import kotlin.test.assertTrue
+import org.jetbrains.compose.web.attributes.InputMode
+import org.jetbrains.compose.web.attributes.InputType
+import web.dom.document
 
 class AttributesTests {
 

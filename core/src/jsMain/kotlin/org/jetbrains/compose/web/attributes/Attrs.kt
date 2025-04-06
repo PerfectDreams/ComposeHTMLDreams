@@ -3,19 +3,19 @@ package org.jetbrains.compose.web.attributes
 import org.jetbrains.compose.web.attributes.builders.saveControlledInputState
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.events.SyntheticSubmitEvent
-import org.w3c.dom.HTMLAnchorElement
-import org.w3c.dom.HTMLButtonElement
-import org.w3c.dom.HTMLCanvasElement
-import org.w3c.dom.HTMLFormElement
-import org.w3c.dom.HTMLImageElement
-import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.HTMLLabelElement
-import org.w3c.dom.HTMLOptGroupElement
-import org.w3c.dom.HTMLOptionElement
-import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.HTMLTableCellElement
-import org.w3c.dom.HTMLTableColElement
-import org.w3c.dom.HTMLTextAreaElement
+import web.html.HTMLAnchorElement
+import web.html.HTMLButtonElement
+import web.html.HTMLCanvasElement
+import web.html.HTMLFormElement
+import web.html.HTMLImageElement
+import web.html.HTMLInputElement
+import web.html.HTMLLabelElement
+import web.html.HTMLOptGroupElement
+import web.html.HTMLOptionElement
+import web.html.HTMLSelectElement
+import web.html.HTMLTableCellElement
+import web.html.HTMLTableColElement
+import web.html.HTMLTextAreaElement
 
 fun AttrsScope<HTMLAnchorElement>.href(value: String) =
     attr("href", value)

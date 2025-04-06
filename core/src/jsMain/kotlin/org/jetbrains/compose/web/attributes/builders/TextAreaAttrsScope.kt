@@ -18,7 +18,7 @@ import org.jetbrains.compose.web.attributes.setTextAreaDefaultValue
 import org.jetbrains.compose.web.events.SyntheticChangeEvent
 import org.jetbrains.compose.web.events.SyntheticInputEvent
 import org.jetbrains.compose.web.events.SyntheticSelectEvent
-import org.w3c.dom.HTMLTextAreaElement
+import web.html.HTMLTextAreaElement
 
 @Deprecated(
     message = "Renamed to TextAreaAttrsScope",

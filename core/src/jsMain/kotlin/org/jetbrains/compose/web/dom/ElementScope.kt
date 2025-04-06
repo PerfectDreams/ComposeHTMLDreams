@@ -10,7 +10,7 @@ import androidx.compose.runtime.RememberObserver
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.currentComposer
 import androidx.compose.runtime.remember
-import org.w3c.dom.Element
+import web.dom.Element
 
 /**
  * ElementScope allows adding effects to the Composable representing html element.

@@ -8,10 +8,13 @@ import org.jetbrains.compose.web.css.StyleHolder
 import org.jetbrains.compose.web.internal.runtime.ComposeWebInternalApi
 import org.jetbrains.compose.web.internal.runtime.DomNodeWrapper
 import org.jetbrains.compose.web.internal.runtime.NamedEventListener
-import org.w3c.dom.Element
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.css.ElementCSSInlineStyle
 import org.w3c.dom.svg.SVGElement
+import web.dom.Element
+import web.events.EventType
+import web.events.addEventListener
+import web.events.removeEventListener
 
 @Composable
 @ExplicitGroupsComposable
@@ -44,13 +47,13 @@ private class DomElementWrapper(override val node: Element): DomNodeWrapper(node
 
     fun updateEventListeners(list: List<NamedEventListener>) {
         currentListeners.forEach {
-            node.removeEventListener(it.name, it)
+            node.removeEventListener(EventType(it.name), it.handler)
         }
 
         currentListeners = list
 
         currentListeners.forEach {
-            node.addEventListener(it.name, it)
+            node.addEventListener(EventType(it.name), it.handler)
         }
     }
 

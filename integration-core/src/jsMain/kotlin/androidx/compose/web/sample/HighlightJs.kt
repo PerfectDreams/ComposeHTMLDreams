@@ -1,6 +1,6 @@
 package org.jetbrains.compose.web.sample
 
-import org.w3c.dom.HTMLElement
+import web.html.HTMLElement
 
 @JsName("hljs")
 @JsModule("highlight.js")

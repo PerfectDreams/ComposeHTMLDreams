@@ -2,65 +2,65 @@ package org.jetbrains.compose.web.dom
 
 import androidx.compose.runtime.*
 import androidx.compose.web.attributes.SelectAttrsScope
-import kotlinx.browser.document
 import org.jetbrains.compose.web.attributes.*
 import org.jetbrains.compose.web.attributes.builders.*
 import org.jetbrains.compose.web.css.CSSRuleDeclarationList
 import org.jetbrains.compose.web.css.StyleSheetBuilder
 import org.jetbrains.compose.web.css.StyleSheetBuilderImpl
+import org.jetbrains.compose.web.dom.setCSSRules
 import org.jetbrains.compose.web.internal.runtime.ComposeWebInternalApi
 import org.jetbrains.compose.web.internal.runtime.DomApplier
 import org.jetbrains.compose.web.internal.runtime.DomNodeWrapper
-import org.w3c.dom.Element
-import org.w3c.dom.HTMLAnchorElement
-import org.w3c.dom.HTMLAreaElement
-import org.w3c.dom.HTMLAudioElement
-import org.w3c.dom.HTMLBRElement
-import org.w3c.dom.HTMLButtonElement
-import org.w3c.dom.HTMLCanvasElement
-import org.w3c.dom.HTMLDataListElement
-import org.w3c.dom.HTMLDListElement
-import org.w3c.dom.HTMLDivElement
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.HTMLEmbedElement
-import org.w3c.dom.HTMLFieldSetElement
-import org.w3c.dom.HTMLFormElement
-import org.w3c.dom.HTMLHRElement
-import org.w3c.dom.HTMLHeadingElement
-import org.w3c.dom.HTMLIFrameElement
-import org.w3c.dom.HTMLImageElement
-import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.HTMLLIElement
-import org.w3c.dom.HTMLLabelElement
-import org.w3c.dom.HTMLLegendElement
-import org.w3c.dom.HTMLMapElement
-import org.w3c.dom.HTMLMeterElement
-import org.w3c.dom.HTMLOListElement
-import org.w3c.dom.HTMLObjectElement
-import org.w3c.dom.HTMLOptGroupElement
-import org.w3c.dom.HTMLOptionElement
-import org.w3c.dom.HTMLOutputElement
-import org.w3c.dom.HTMLParagraphElement
-import org.w3c.dom.HTMLParamElement
-import org.w3c.dom.HTMLPictureElement
-import org.w3c.dom.HTMLPreElement
-import org.w3c.dom.HTMLProgressElement
-import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.HTMLSourceElement
-import org.w3c.dom.HTMLSpanElement
-import org.w3c.dom.HTMLStyleElement
-import org.w3c.dom.HTMLTableCaptionElement
-import org.w3c.dom.HTMLTableCellElement
-import org.w3c.dom.HTMLTableColElement
-import org.w3c.dom.HTMLTableElement
-import org.w3c.dom.HTMLTableRowElement
-import org.w3c.dom.HTMLTableSectionElement
-import org.w3c.dom.HTMLTextAreaElement
-import org.w3c.dom.HTMLTrackElement
-import org.w3c.dom.HTMLUListElement
-import org.w3c.dom.HTMLVideoElement
-import org.w3c.dom.Text
-import org.w3c.dom.css.CSSStyleSheet
+import web.dom.Element
+import web.html.HTMLAnchorElement
+import web.html.HTMLAreaElement
+import web.html.HTMLAudioElement
+import web.html.HTMLBRElement
+import web.html.HTMLButtonElement
+import web.html.HTMLCanvasElement
+import web.html.HTMLDataListElement
+import web.html.HTMLDListElement
+import web.html.HTMLDivElement
+import web.html.HTMLElement
+import web.html.HTMLEmbedElement
+import web.html.HTMLFieldSetElement
+import web.html.HTMLFormElement
+import web.html.HTMLHRElement
+import web.html.HTMLHeadingElement
+import web.html.HTMLIFrameElement
+import web.html.HTMLImageElement
+import web.html.HTMLInputElement
+import web.html.HTMLLIElement
+import web.html.HTMLLabelElement
+import web.html.HTMLLegendElement
+import web.html.HTMLMapElement
+import web.html.HTMLMeterElement
+import web.html.HTMLOListElement
+import web.html.HTMLObjectElement
+import web.html.HTMLOptGroupElement
+import web.html.HTMLOptionElement
+import web.html.HTMLOutputElement
+import web.html.HTMLParagraphElement
+import web.html.HTMLPictureElement
+import web.html.HTMLPreElement
+import web.html.HTMLProgressElement
+import web.html.HTMLSelectElement
+import web.html.HTMLSourceElement
+import web.html.HTMLSpanElement
+import web.html.HTMLStyleElement
+import web.html.HTMLTableCaptionElement
+import web.html.HTMLTableCellElement
+import web.html.HTMLTableColElement
+import web.html.HTMLTableElement
+import web.html.HTMLTableRowElement
+import web.html.HTMLTableSectionElement
+import web.html.HTMLTextAreaElement
+import web.html.HTMLTrackElement
+import web.html.HTMLUListElement
+import web.html.HTMLVideoElement
+import web.dom.Text
+import web.cssom.CSSStyleSheet
+import web.dom.document
 
 typealias AttrBuilderContext<T> = AttrsScope<T>.() -> Unit
 typealias ContentBuilder<T> = @Composable ElementScope<T>.() -> Unit
@@ -92,7 +92,6 @@ private val Progress: ElementBuilder<HTMLProgressElement> = ElementBuilderImplem
 private val Embed: ElementBuilder<HTMLEmbedElement> = ElementBuilderImplementation("embed")
 private val Iframe: ElementBuilder<HTMLIFrameElement> = ElementBuilderImplementation("iframe")
 private val Object: ElementBuilder<HTMLObjectElement> = ElementBuilderImplementation("object")
-private val Param: ElementBuilder<HTMLParamElement> = ElementBuilderImplementation("param")
 private val Picture: ElementBuilder<HTMLPictureElement> = ElementBuilderImplementation("picture")
 private val Source: ElementBuilder<HTMLSourceElement> = ElementBuilderImplementation("source")
 private val Canvas: ElementBuilder<HTMLCanvasElement> = ElementBuilderImplementation("canvas")
@@ -389,18 +388,6 @@ fun Object(
 ) {
     TagElement(
         elementBuilder = Object,
-        applyAttrs = attrs,
-        content = content
-    )
-}
-
-@Composable
-fun Param(
-    attrs: AttrBuilderContext<HTMLParamElement>? = null,
-    content: ContentBuilder<HTMLParamElement>? = null
-) {
-    TagElement(
-        elementBuilder = Param,
         applyAttrs = attrs,
         content = content
     )

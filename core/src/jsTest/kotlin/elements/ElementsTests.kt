@@ -6,13 +6,12 @@
 package org.jetbrains.compose.web.core.tests.elements
 
 import androidx.compose.runtime.*
-import kotlinx.browser.document
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.testutils.runTest
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.get
+import web.dom.document
+import web.html.HTMLElement
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
@@ -42,7 +41,6 @@ class ElementsTests {
             Pair({ Embed() }, "EMBED"),
             Pair({ Iframe() }, "IFRAME"),
             Pair({ Object() }, "OBJECT"),
-            Pair({ Param() }, "PARAM"),
             Pair({ Picture() }, "PICTURE"),
             Pair({ Source() }, "SOURCE"),
             Pair({ Canvas() }, "CANVAS"),

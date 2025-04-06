@@ -1,11 +1,14 @@
 package androidx.compose.web.events
 
-import org.w3c.dom.DataTransfer
-import org.w3c.dom.DragEvent
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.events.EventTarget
-import org.w3c.dom.events.MouseEvent
-import org.w3c.dom.events.WheelEvent
+import web.data.DataTransfer
+import web.events.EventTarget
+import web.keyboard.ModifierKeyCode
+import web.uievents.DeltaMode
+import web.uievents.DragEvent
+import web.uievents.MouseButton
+import web.uievents.MouseButtons
+import web.uievents.MouseEvent
+import web.uievents.WheelEvent
 
 /**
  * https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
@@ -17,8 +20,8 @@ open class SyntheticMouseEvent internal constructor(
     private val mouseEvent = nativeEvent
 
     val altKey: Boolean = nativeEvent.altKey
-    val button: Short = nativeEvent.button
-    val buttons: Short = nativeEvent.buttons
+    val button: MouseButton = nativeEvent.button
+    val buttons: MouseButtons = nativeEvent.buttons
     val clientX: Int = nativeEvent.clientX
     val clientY: Int = nativeEvent.clientY
     val ctrlKey: Boolean = nativeEvent.ctrlKey
@@ -33,7 +36,6 @@ open class SyntheticMouseEvent internal constructor(
     val offsetY: Double = nativeEvent.offsetY
     val pageX: Double = nativeEvent.pageX
     val pageY: Double = nativeEvent.pageY
-    val region: String? = nativeEvent.region
     val relatedTarget: EventTarget? = nativeEvent.relatedTarget
     val screenX: Int = nativeEvent.screenX
     val screenY: Int = nativeEvent.screenY
@@ -41,7 +43,7 @@ open class SyntheticMouseEvent internal constructor(
     val x: Double = nativeEvent.x
     val y: Double = nativeEvent.y
 
-    fun getModifierState(keyArg: String): Boolean = mouseEvent.getModifierState(keyArg)
+    fun getModifierState(keyArg: ModifierKeyCode): Boolean = mouseEvent.getModifierState(keyArg)
 }
 
 
@@ -56,7 +58,7 @@ class SyntheticWheelEvent(
     val deltaX: Double = nativeEvent.deltaX
     val deltaY: Double = nativeEvent.deltaY
     val deltaZ: Double = nativeEvent.deltaZ
-    val deltaMode: Int = nativeEvent.deltaMode
+    val deltaMode: DeltaMode = nativeEvent.deltaMode
 }
 
 /**

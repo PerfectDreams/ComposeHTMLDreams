@@ -1,8 +1,8 @@
-import kotlinx.browser.document
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.promise
 import org.jetbrains.compose.web.renderComposable
+import web.dom.document
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

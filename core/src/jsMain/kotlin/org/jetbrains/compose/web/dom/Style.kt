@@ -1,11 +1,11 @@
 package org.jetbrains.compose.web.dom
 
-import org.w3c.dom.css.CSSGroupingRule
-import org.w3c.dom.css.CSSRule
-import org.w3c.dom.css.CSSStyleDeclaration
-import org.w3c.dom.css.CSSStyleRule
+import web.cssom.CSSGroupingRule
+import web.cssom.CSSRule
+import web.cssom.CSSStyleDeclaration
+import web.cssom.CSSStyleRule
 import org.jetbrains.compose.web.css.*
-import org.w3c.dom.css.CSSStyleSheet
+import web.cssom.CSSStyleSheet
 
 
 internal fun CSSStyleSheet.setCSSRules(cssRules: CSSRuleDeclarationList) {

@@ -1,8 +1,11 @@
 package org.jetbrains.compose.web.events
 
 import androidx.compose.web.events.SyntheticEvent
-import org.w3c.dom.events.EventTarget
-import org.w3c.dom.events.KeyboardEvent
+import web.events.EventTarget
+import web.keyboard.KeyCode
+import web.keyboard.ModifierKeyCode
+import web.uievents.KeyLocation
+import web.uievents.KeyboardEvent
 
 class SyntheticKeyboardEvent internal constructor(
     nativeEvent: KeyboardEvent
@@ -11,17 +14,17 @@ class SyntheticKeyboardEvent internal constructor(
     private val keyboardEvent = nativeEvent
 
     val altKey: Boolean = nativeEvent.altKey
-    val code: String = nativeEvent.code
+    val code: KeyCode = nativeEvent.code
     val ctrlKey: Boolean = nativeEvent.ctrlKey
     val isComposing: Boolean = nativeEvent.isComposing
     val key: String = nativeEvent.key
     val locale: String = nativeEvent.asDynamic().locale.toString()
-    val location: Int = nativeEvent.location
+    val location: KeyLocation = nativeEvent.location
     val metaKey: Boolean = nativeEvent.metaKey
     val repeat: Boolean = nativeEvent.repeat
     val shiftKey: Boolean = nativeEvent.shiftKey
 
-    fun getModifierState(keyArg: String): Boolean = keyboardEvent.getModifierState(keyArg)
+    fun getModifierState(keyArg: ModifierKeyCode): Boolean = keyboardEvent.getModifierState(keyArg)
 
     fun getNormalizedKey(): String = key.let {
         normalizedKeys[it] ?: it

@@ -7,7 +7,7 @@ package org.jetbrains.compose.web.svg
 
 import org.jetbrains.compose.web.attributes.*
 import org.jetbrains.compose.web.css.*
-import org.w3c.dom.svg.*
+import web.svg.*
 
 fun AttrsScope<SVGElement>.width(px: Number) {
     attr("width", px.toString())

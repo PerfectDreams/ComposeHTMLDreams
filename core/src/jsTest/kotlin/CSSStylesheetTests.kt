@@ -9,13 +9,11 @@ import androidx.compose.runtime.mutableStateOf
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.stringPresentation
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.get
+import web.html.HTMLElement
 import org.jetbrains.compose.web.testutils.*
-import org.w3c.dom.HTMLDivElement
-import org.w3c.dom.HTMLStyleElement
-import org.w3c.dom.css.CSSStyleSheet
-import org.w3c.dom.css.get
+import web.html.HTMLDivElement
+import web.html.HTMLStyleElement
+import web.cssom.CSSStyleSheet
 import kotlin.test.*
 
 object AppCSSVariables {

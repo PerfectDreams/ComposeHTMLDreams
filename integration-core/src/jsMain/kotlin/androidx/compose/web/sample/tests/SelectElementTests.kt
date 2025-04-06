@@ -5,14 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import js.array.asList
 import org.jetbrains.compose.web.attributes.name
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.events.SyntheticChangeEvent
 import org.jetbrains.compose.web.events.SyntheticInputEvent
 import org.jetbrains.compose.web.sample.tests.TestText
 import org.jetbrains.compose.web.sample.tests.testCase
-import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.asList
+import web.html.HTMLSelectElement
 
 class SelectElementTests {
 

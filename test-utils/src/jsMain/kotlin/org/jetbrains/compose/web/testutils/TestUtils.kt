@@ -2,19 +2,20 @@ package org.jetbrains.compose.web.testutils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MonotonicFrameClock
-import kotlinx.browser.document
-import kotlinx.browser.window
+import js.array.asList
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.promise
-import kotlinx.dom.clear
+import org.jetbrains.compose.web.dom.clear
 import org.jetbrains.compose.web.renderComposable
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.MutationObserver
-import org.w3c.dom.MutationObserverInit
-import org.w3c.dom.asList
-import org.w3c.dom.css.CSSStyleDeclaration
+import web.animations.requestAnimationFrame
+import web.cssom.CSSStyleDeclaration
+import web.dom.document
+import web.dom.getComputedStyle
+import web.html.HTMLElement
+import web.mutation.MutationObserver
+import web.mutation.MutationObserverInit
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -90,7 +91,16 @@ class TestScope : CoroutineScope by MainScope() {
                 continuation.resume(Unit)
                 observer.disconnect()
             }
-            observer.observe(element, MutationObserverOptions)
+            observer.observe(
+                element,
+                MutationObserverInit(
+                    childList = true,
+                    attributes = true,
+                    characterData = true,
+                    subtree = true,
+                    attributeOldValue = true
+                )
+            )
 
             continuation.invokeOnCancellation {
                 observer.disconnect()
@@ -152,14 +162,6 @@ fun runTest(block: suspend TestScope.() -> Unit): dynamic {
     return scope.promise { block(scope) }
 }
 
-private object MutationObserverOptions : MutationObserverInit {
-    override var childList: Boolean? = true
-    override var attributes: Boolean? = true
-    override var characterData: Boolean? = true
-    override var subtree: Boolean? = true
-    override var attributeOldValue: Boolean? = true
-}
-
 @OptIn(ExperimentalTime::class)
 private class TestMonotonicClockImpl(
     private val onRecomposeComplete: () -> Unit
@@ -168,7 +170,7 @@ private class TestMonotonicClockImpl(
     override suspend fun <R> withFrameNanos(
         onFrame: (Long) -> R
     ): R = suspendCoroutine { continuation ->
-        window.requestAnimationFrame {
+        requestAnimationFrame {
             val duration = it.toDuration(DurationUnit.MILLISECONDS)
             val result = onFrame(duration.inWholeNanoseconds)
             continuation.resume(result)
@@ -178,4 +180,4 @@ private class TestMonotonicClockImpl(
 }
 
 val HTMLElement.computedStyle: CSSStyleDeclaration
-    get() = window.getComputedStyle(this)
+    get() = getComputedStyle(this)

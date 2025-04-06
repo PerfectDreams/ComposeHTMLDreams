@@ -11,16 +11,22 @@ import org.jetbrains.compose.web.attributes.EventsListenerScope.Companion.SELECT
 import org.jetbrains.compose.web.events.*
 import org.jetbrains.compose.web.internal.runtime.ComposeWebInternalApi
 import org.jetbrains.compose.web.internal.runtime.NamedEventListener
-import org.w3c.dom.DragEvent
-import org.w3c.dom.TouchEvent
-import org.w3c.dom.clipboard.ClipboardEvent
-import org.w3c.dom.events.*
+import org.w3c.dom.events.EventListener
+import web.clipboard.ClipboardEvent
+import web.events.Event
+import web.events.EventTarget
+import web.uievents.DragEvent
+import web.uievents.FocusEvent
+import web.uievents.KeyboardEvent
+import web.uievents.MouseEvent
+import web.uievents.TouchEvent
+import web.uievents.WheelEvent
 
 @OptIn(ComposeWebInternalApi::class)
 open class SyntheticEventListener<T : SyntheticEvent<*>> internal constructor(
     val event: String,
     val listener: (T) -> Unit
-) : EventListener, NamedEventListener {
+) : NamedEventListener() {
 
     override val name: String = event
 

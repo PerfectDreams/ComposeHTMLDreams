@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import org.jetbrains.compose.web.attributes.*
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
+import web.uievents.MouseButton
 
 class EventsTests {
 
@@ -157,7 +158,7 @@ class EventsTests {
                 id("box")
                 style { height(50.px) }
                 onContextMenu {
-                    if (it.button == 2.toShort()) {
+                    if (it.button == MouseButton.SECONDARY) {
                         it.preventDefault()
                         it.stopImmediatePropagation()
                         state = "MOUSE CONTEXT MENU"

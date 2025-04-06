@@ -1,8 +1,8 @@
 package org.jetbrains.compose.web.events
 
 import androidx.compose.web.events.SyntheticEvent
-import org.w3c.dom.events.EventTarget
-import org.w3c.dom.events.FocusEvent
+import web.events.EventTarget
+import web.uievents.FocusEvent
 
 class SyntheticFocusEvent internal constructor(
     nativeEvent: FocusEvent,

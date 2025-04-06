@@ -12,7 +12,6 @@ import androidx.compose.runtime.DefaultMonotonicFrameClock
 import androidx.compose.runtime.DisposableEffectScope
 import androidx.compose.runtime.MonotonicFrameClock
 import androidx.compose.runtime.Recomposer
-import kotlinx.browser.document
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.launch
@@ -22,9 +21,9 @@ import org.jetbrains.compose.web.internal.runtime.DomApplier
 import org.jetbrains.compose.web.internal.runtime.DomNodeWrapper
 import org.jetbrains.compose.web.internal.runtime.GlobalSnapshotManager
 import org.jetbrains.compose.web.internal.runtime.JsMicrotasksDispatcher
-import org.w3c.dom.Element
-import org.w3c.dom.HTMLBodyElement
-import org.w3c.dom.get
+import web.dom.Element
+import web.dom.document
+import web.html.HTMLBodyElement
 
 /**
  * Use this method to mount the composition at the certain [root]

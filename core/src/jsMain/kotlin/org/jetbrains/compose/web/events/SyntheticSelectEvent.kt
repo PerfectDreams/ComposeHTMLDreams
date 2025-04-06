@@ -1,8 +1,8 @@
 package org.jetbrains.compose.web.events
 
 import androidx.compose.web.events.SyntheticEvent
-import org.w3c.dom.events.Event
-import org.w3c.dom.events.EventTarget
+import web.events.Event
+import web.events.EventTarget
 
 class SyntheticSelectEvent<Element : EventTarget> internal constructor(
     nativeEvent: Event,

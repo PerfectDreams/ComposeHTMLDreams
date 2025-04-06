@@ -1,9 +1,9 @@
 package org.jetbrains.compose.web.events
 
 import androidx.compose.web.events.SyntheticEvent
-import org.w3c.dom.DataTransfer
-import org.w3c.dom.events.Event
-import org.w3c.dom.events.EventTarget
+import web.data.DataTransfer
+import web.events.Event
+import web.events.EventTarget
 
 // @param nativeEvent: Event - we don't use [org.w3c.dom.events.InputEvent] here,
 // since for cases it can be just [org.w3c.dom.events.Event]

@@ -6,14 +6,12 @@
 package org.jetbrains.compose.web.svg
 
 import androidx.compose.runtime.Composable
-import kotlinx.browser.document
 import org.jetbrains.compose.web.ExperimentalComposeWebSvgApi
 import org.jetbrains.compose.web.css.CSSLengthOrPercentageValue
 import org.jetbrains.compose.web.dom.*
-import org.w3c.css.masking.SVGClipPathElement
-import org.w3c.css.masking.SVGMaskElement
-import org.w3c.dom.Element
-import org.w3c.dom.svg.*
+import web.dom.Element
+import web.dom.document
+import web.svg.*
 
 private open class ElementBuilderNS<TElement : Element>(private val tagName: String, private val namespace: String) :
     ElementBuilder<TElement> {

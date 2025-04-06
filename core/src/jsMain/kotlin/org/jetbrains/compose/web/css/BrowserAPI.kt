@@ -6,8 +6,8 @@
 @file:Suppress("UNUSED", "NOTHING_TO_INLINE", "FunctionName")
 package org.jetbrains.compose.web.css
 
-import org.w3c.dom.css.CSSRule
-import org.w3c.dom.css.CSSRuleList
+import web.cssom.CSSRule
+import web.cssom.CSSRuleList
 
 
 internal external class CSSKeyframesRule: CSSRule {

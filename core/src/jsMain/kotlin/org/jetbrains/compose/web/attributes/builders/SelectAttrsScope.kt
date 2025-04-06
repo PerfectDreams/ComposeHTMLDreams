@@ -11,8 +11,8 @@ import org.jetbrains.compose.web.attributes.EventsListenerScope.Companion.INPUT
 import org.jetbrains.compose.web.attributes.SyntheticEventListener
 import org.jetbrains.compose.web.events.SyntheticChangeEvent
 import org.jetbrains.compose.web.events.SyntheticInputEvent
-import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.events.Event
+import web.events.Event
+import web.html.HTMLSelectElement
 
 @Deprecated(
     message = "Renamed to SelectAttrsScope",

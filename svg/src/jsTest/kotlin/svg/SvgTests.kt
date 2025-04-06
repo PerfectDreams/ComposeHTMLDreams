@@ -11,9 +11,9 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.svg.*
 import org.jetbrains.compose.web.testutils.*
-import org.w3c.dom.svg.SVGCircleElement
-import org.w3c.dom.svg.SVGElement
-import org.w3c.dom.svg.SVGTextElement
+import web.svg.SVGCircleElement
+import web.svg.SVGElement
+import web.svg.SVGTextElement
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

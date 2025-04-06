@@ -1,6 +1,5 @@
 package org.jetbrains.compose.web.core.tests
 
-import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.css.selectors.*
 import org.jetbrains.compose.web.dom.Div
@@ -8,10 +7,11 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.testutils.computedStyle
 import org.jetbrains.compose.web.testutils.runTest
-import org.w3c.dom.HTMLElement
-import org.w3c.dom.HTMLParagraphElement
-import org.w3c.dom.HTMLSpanElement
-import org.w3c.dom.get
+import web.dom.getComputedStyle
+import web.html.HTMLElement
+import web.html.HTMLParagraphElement
+import web.html.HTMLSpanElement
+import web.window.window
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -179,7 +179,7 @@ class CssSelectorsTests {
             val spanEl = el.firstChild as HTMLSpanElement
 
             assertEquals("rgb(0, 0, 0)", el.computedStyle.color)
-            assertEquals("rgb(0, 0, 0)", window.getComputedStyle(spanEl).color)
+            assertEquals("rgb(0, 0, 0)", getComputedStyle(spanEl).color)
         }
     }
 }

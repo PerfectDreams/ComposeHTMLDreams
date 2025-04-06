@@ -34,6 +34,7 @@ kotlin {
             }
             dependencies {
                 api(project(":internal-html-core-runtime"))
+                api("org.jetbrains.kotlin-wrappers:kotlin-browser:2025.4.4")
             }
         }
 

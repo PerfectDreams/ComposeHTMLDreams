@@ -9,13 +9,8 @@ plugins {
 
 kotlin {
     js(IR) {
-        browser() {
-            testTask {
-                useKarma {
-                    standardConf()
-                }
-            }
-        }
+        browser()
+        binaries.executable()
     }
 
     sourceSets {
@@ -23,13 +18,16 @@ kotlin {
             dependencies {
                 implementation(compose.runtime)
                 implementation(libs.kotlinx.coroutines.core)
-                api("org.jetbrains.kotlin-wrappers:kotlin-browser:2025.4.4")
             }
         }
 
-        val jsTest by getting {
+        val jsMain by getting {
+            languageSettings {
+                optIn("org.jetbrains.compose.web.internal.runtime.ComposeWebInternalApi")
+            }
             dependencies {
-                implementation(kotlin("test-js"))
+                api(project(":html-core"))
+                api("org.jetbrains.kotlin-wrappers:kotlin-browser:2025.4.4")
             }
         }
     }

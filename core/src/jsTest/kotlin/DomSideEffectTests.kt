@@ -7,10 +7,11 @@ import androidx.compose.runtime.currentRecomposeScope
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import kotlinx.browser.document
 import kotlinx.dom.clear
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.clear
 import org.jetbrains.compose.web.testutils.runTest
+import web.dom.document
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals

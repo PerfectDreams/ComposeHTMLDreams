@@ -1,6 +1,6 @@
 package org.jetbrains.compose.web.attributes
 
-import org.w3c.dom.events.Event
+import web.events.Event
 
 sealed class InputType<T>(val typeStr: String) {
 
@@ -52,28 +52,28 @@ sealed class InputType<T>(val typeStr: String) {
     }
 
     companion object {
-        internal fun fromString(type: String): InputType<*> {
+        internal fun fromString(type: web.html.InputType): InputType<*> {
             return when (type) {
-                "button" -> Button
-                "checkbox" -> Checkbox
-                "color" -> Color
-                "date" -> Date
-                "datetime-local" -> DateTimeLocal
-                "email" -> Email
-                "file" -> File
-                "hidden" -> Hidden
-                "month" -> Month
-                "number" -> Number
-                "password" -> Password
-                "radio" -> Radio
-                "range" -> Range
-                "search" -> Search
-                "submit" -> Submit
-                "tel" -> Tel
-                "text" -> Text
-                "time" -> Time
-                "url" -> Url
-                "week" -> Week
+                web.html.InputType.button -> Button
+                web.html.InputType.checkbox -> Checkbox
+                web.html.InputType.color -> Color
+                web.html.InputType.date -> Date
+                web.html.InputType.datetimeLocal -> DateTimeLocal
+                web.html.InputType.email -> Email
+                web.html.InputType.file -> File
+                web.html.InputType.hidden -> Hidden
+                web.html.InputType.month -> Month
+                web.html.InputType.number -> Number
+                web.html.InputType.password -> Password
+                web.html.InputType.radio -> Radio
+                web.html.InputType.range -> Range
+                web.html.InputType.search -> Search
+                web.html.InputType.submit -> Submit
+                web.html.InputType.tel -> Tel
+                web.html.InputType.text -> Text
+                web.html.InputType.time -> Time
+                web.html.InputType.url -> Url
+                web.html.InputType.week -> Week
                 else -> error("fromString got unknown type - $type")
             }
         }

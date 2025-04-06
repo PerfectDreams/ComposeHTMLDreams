@@ -14,7 +14,8 @@ import org.jetbrains.compose.web.dom.H4
 import org.jetbrains.compose.web.dom.Input
 import org.jetbrains.compose.web.dom.Pre
 import org.jetbrains.compose.web.dom.Text
-import org.w3c.dom.HTMLElement
+import org.jetbrains.compose.web.sample.setHighlightedCode
+import web.html.HTMLElement
 
 @Composable
 fun KotlinCodeSnippets() {

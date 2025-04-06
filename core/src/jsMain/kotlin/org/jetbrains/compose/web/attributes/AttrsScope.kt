@@ -5,8 +5,8 @@ import androidx.compose.runtime.DisposableEffectScope
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.StyleScopeBuilder
 import org.jetbrains.compose.web.internal.runtime.ComposeWebInternalApi
-import org.w3c.dom.Element
-import org.w3c.dom.HTMLElement
+import web.dom.Element
+import web.html.HTMLElement
 
 @Deprecated(
     message = "Renamed to AttrsScopeBuilder",

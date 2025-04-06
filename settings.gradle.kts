@@ -86,6 +86,7 @@ module(":compose-compiler-integration", "compose-compiler-integration")
 module(":compose-compiler-integration-lib", "compose-compiler-integration/lib")
 module(":internal-html-core-runtime", "internal-html-core-runtime")
 module(":html-test-utils", "test-utils")
+module(":compose-sample", "compose-sample")
 
 if (extra["compose.web.tests.skip.benchmarks"]!!.toString().toBoolean() != true) {
     module(":html-benchmark-core", "benchmark-core")

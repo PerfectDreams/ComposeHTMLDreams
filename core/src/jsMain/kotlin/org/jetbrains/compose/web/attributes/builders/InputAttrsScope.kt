@@ -13,7 +13,7 @@ import org.jetbrains.compose.web.attributes.EventsListenerScope.Companion.INVALI
 import org.jetbrains.compose.web.events.SyntheticChangeEvent
 import org.jetbrains.compose.web.events.SyntheticInputEvent
 import org.jetbrains.compose.web.events.SyntheticSelectEvent
-import org.w3c.dom.HTMLInputElement
+import web.html.HTMLInputElement
 
 @Deprecated(
     message = "Renamed to InputAttrsScope<T>",
