@@ -1,5 +1,5 @@
 import androidx.compose.runtime.*
-import kotlinx.browser.document
+import js.array.asList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.promise
@@ -11,6 +11,7 @@ import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.renderComposable
 import org.jetbrains.compose.web.renderComposableInBody
 import org.w3c.dom.*
+import web.dom.document
 import kotlin.test.AfterTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -189,9 +190,9 @@ class StabilityTests {
 
     @Test // issue https://github.com/JetBrains/compose-jb/issues/2535
     fun test_remembers_correct_attrs() = runBlockingTest {
-        val root = document.body!!.appendElement("div") {
+        val root = document.body!!.appendChild(document.createElement("div").apply {
             id = "root"
-        }
+        })
         renderComposable(root) {
             val words = remember { mutableStateListOf<String>() }
             words.map { P { Text(it) }}
